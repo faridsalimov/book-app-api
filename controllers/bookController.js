@@ -3,16 +3,11 @@ const APIFeatures = require('./../utils/apiFeatures');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('../utils/appError');
 
-exports.checkId = (req, res, next, val) => {
-  console.log(`Book ID: ${val}`);
-  next();
-};
-
 exports.checkBody = (req, res, next) => {
   if (!req.body.title || !req.body.author || !req.body.price || !req.body.discount || !req.body.publishDate || !req.body.imageLink) {
     return res.status(400).json({
-      status: "fail",
-      message: "Missing field.",
+      status: 'fail',
+      message: 'Missing field.',
     });
   }
   next();

@@ -12,13 +12,6 @@ router.post('/updatePassword/:id', authController.protect, authController.update
 
 router
   .route('/')
-  .get(userController.getAllUsers)
-  .post(userController.createUser);
-
-router
-  .route('/:id')
-  .get(userController.getUser)
-  .patch(userController.updateUser)
-  .delete(userController.deleteUser);
+  .get(authController.protect, userController.getAllUsers);
 
 module.exports = router;
